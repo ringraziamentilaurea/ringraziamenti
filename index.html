@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualizza File</title>
+    <style>
+        body {
+            background-color: #cc0000; /* Colore di sfondo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff; /* Colore sfondo contenitore */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Ringraziamenti di Laurea</h1>
+        <label for="nome">Inserisci il nome in minuscolo:</label>
+        <input type="text" id="nome" required>
+        <button onclick="mostraFile()">Visualizza File</button>
+        <label for="nome"><br>Generali:"ringraziamenti"</label>
+
+
+
+        <div id="risultato"></div>
+    </div>
+
+    <script>
+        // Funzione chiamata quando si fa clic sul pulsante "Visualizza File"
+        function mostraFile() {
+            const nomeInserito = document.getElementById('nome').value;
+
+            // Esempio di corrispondenza nome-file per visualizzazione
+            const elencoNomiFile = {
+                             "papotto": "https://drive.google.com/file/d/1w0gCG52RjgRycJXw5JFb9on9q9yQdi4f/view?usp=share_link",
+                "mammozza": "https://drive.google.com/file/d/1mUMb6ObBhHnfZ8ifFs4GHbu7gfLjOmfh/view?usp=share_link",
+                "rocia": "https://drive.google.com/file/d/1gIA3qlHN2mWHLjdYPMV2eSt67JQzco1z/view?usp=share_link",
+                "moschellina": "https://drive.google.com/file/d/1VVvO8u-OW3_F3iz4DA5hn8CH0PBzediH/view?usp=share_link",
+                "mariano": "https://drive.google.com/file/d/1VVvO8u-OW3_F3iz4DA5hn8CH0PBzediH/view?usp=share_link",
+                "ivano": "https://drive.google.com/file/d/1HeZVMQdUspFUso4TTlOynKae_hiITTDe/view?usp=share_link",
+                "ringraziamenti": "https://drive.google.com/file/d/13ITos9_dzGI7dMu46PUJoeIuUqL0iRLq/view?usp=share_link",
+                // Aggiungi altri nomi e URL dei file qui
+            };
+
+            // Controlla se il nome inserito è presente nell'elenco dei nomi dei file
+            if (elencoNomiFile[nomeInserito]) {
+                const risultatoDiv = document.getElementById('risultato');
+                risultatoDiv.innerHTML = 'Nome del file trovato: ' + nomeInserito + '<br>' +
+                                         '<a href="' + elencoNomiFile[nomeInserito] + '" target="_blank">Apri il file</a>';
+            } else {
+                alert('Nome non trovato');
+            }
+        }
+    </script>
+</body>
+</html>
