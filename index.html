@@ -4,29 +4,45 @@
     <title>Visualizza File</title>
     <style>
         body {
-            background-color: #cc0000; /* Colore di sfondo */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+        	  background: linear-gradient(to bottom,#cc0000, pink);
+ /* Colore di sfondo */
+        	display: flex;
+        	justify-content: center;
+        	align-items: center;
+        	height: 100vh;
+        	margin: 0;
+    	}
+        #container {
+        	text-align: center;
+        	padding: 20px;
+        	border-radius: 8px;
+        	background-color: #F9F9F9; /* Colore sfondo contenitore */
+        	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        	max-width: 400px; /* Larghezza massima del contenitore */
+        	width: 80%; /* Larghezza predefinita del contenitore */
+          
+    	}
+
+	/* Constraint per schermi più piccoli */
+    @media screen and (max-width: 600px) {
+        body {
+            padding: 10px;
         }
         #container {
-            text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #ffffff; /* Colore sfondo contenitore */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 100%; /* Occupa tutta la larghezza dello schermo su dispositivi piccoli 	*/
+            max-width: none; /* Reset della larghezza massima */
+            padding: 10px;
         }
+    }
     </style>
 </head>
 <body>
     <div id="container">
         <h1>Ringraziamenti di Laurea</h1>
-        <label for="nome">Inserisci il nome in minuscolo:</label>
+        <label for="nome">Inserisci il nome:</label>
         <input type="text" id="nome" required>
         <button onclick="mostraFile()">Visualizza File</button>
-        <label for="nome"><br>Generali:"ringraziamenti"</label>
+        <label for="nome"><br><br><br>Per ringraziamenti generali inserire:"ringraziamenti"</label>
 
 
 
@@ -36,24 +52,25 @@
     <script>
         // Funzione chiamata quando si fa clic sul pulsante "Visualizza File"
         function mostraFile() {
-            const nomeInserito = document.getElementById('nome').value;
+            const nomeInserito = document.getElementById('nome').value.toLowerCase();
 
             // Esempio di corrispondenza nome-file per visualizzazione
             const elencoNomiFile = {
-                             "papotto": "https://drive.google.com/file/d/1w0gCG52RjgRycJXw5JFb9on9q9yQdi4f/view?usp=share_link",
-                "mammozza": "https://drive.google.com/file/d/1mUMb6ObBhHnfZ8ifFs4GHbu7gfLjOmfh/view?usp=share_link",
-                "rocia": "https://drive.google.com/file/d/1gIA3qlHN2mWHLjdYPMV2eSt67JQzco1z/view?usp=share_link",
-                "moschellina": "https://drive.google.com/file/d/1VVvO8u-OW3_F3iz4DA5hn8CH0PBzediH/view?usp=share_link",
-                "mariano": "https://drive.google.com/file/d/1VVvO8u-OW3_F3iz4DA5hn8CH0PBzediH/view?usp=share_link",
-                "ivano": "https://drive.google.com/file/d/1HeZVMQdUspFUso4TTlOynKae_hiITTDe/view?usp=share_link",
-                "ringraziamenti": "https://drive.google.com/file/d/13ITos9_dzGI7dMu46PUJoeIuUqL0iRLq/view?usp=share_link",
+                             "papotto": "https://drive.google.com/file/d/1B-N0-A7_0fTIGOZU-t33ItSZI-d-R6Tw/view?usp=share_link",
+                "mammozza": "https://drive.google.com/file/d/1VyF-tUWJf4fLThK3vZv2Lq-UIcPGeHbI/view?usp=share_link",
+                "rocia": "https://drive.google.com/file/d/1rVK0bNqBwXjWjsM4QdUtOhTHQ2UCNxz_/view?usp=share_link",
+                "moschellina": "https://drive.google.com/file/d/14JBkrI269HKtKrFkuSIxM1JjlhcyWWJz/view?usp=share_link",
+                "adam": "https://drive.google.com/file/d/1NPvtVjaDJhGbFfTOQ424q-Rp00SzD6Oo/view?usp=share_link",
+                "wizy": "https://drive.google.com/file/d/10KtbpklncvY1o4H6uYBBizlf9YcR2LyW/view?usp=share_link",
+                "ringraziamenti": "https://drive.google.com/file/d/1KSN7hFVa2-NZuZ0ipmGV5kxKqRgLXrnI/view?usp=share_link",
                 // Aggiungi altri nomi e URL dei file qui
             };
 
-            // Controlla se il nome inserito è presente nell'elenco dei nomi dei file
+
+     // Controlla se il nome inserito è presente nell'elenco dei nomi dei file
             if (elencoNomiFile[nomeInserito]) {
                 const risultatoDiv = document.getElementById('risultato');
-                risultatoDiv.innerHTML = 'Nome del file trovato: ' + nomeInserito + '<br>' +
+                risultatoDiv.innerHTML = 'Nome del file trovato: ' + '<br>' + '<br>' +
                                          '<a href="' + elencoNomiFile[nomeInserito] + '" target="_blank">Apri il file</a>';
             } else {
                 alert('Nome non trovato');
@@ -62,3 +79,7 @@
     </script>
 </body>
 </html>
+
+
+
+
